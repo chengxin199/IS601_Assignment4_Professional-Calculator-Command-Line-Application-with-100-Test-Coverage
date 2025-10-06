@@ -40,6 +40,7 @@ Usage:
         subtract  : Subtracts the second number from the first.
         multiply  : Multiplies two numbers.
         divide    : Divides the first number by the second.
+        power     : Raises the first number to the power of the second.
 
 Special Commands:
     help      : Display this help message.
@@ -51,6 +52,7 @@ Examples:
     subtract 15.5 3.2
     multiply 7 8
     divide 20 4
+    power 2 3
 """
     # Remove leading/trailing whitespace for comparison
     assert captured.out.strip() == expected_output.strip()
@@ -88,7 +90,8 @@ def test_display_history_with_entries(capsys):
         "AddCalculation: 10.0 Add 5.0 = 15.0",
         "SubtractCalculation: 20.0 Subtract 3.0 = 17.0",
         "MultiplyCalculation: 7.0 Multiply 8.0 = 56.0",
-        "DivideCalculation: 20.0 Divide 4.0 = 5.0"
+        "DivideCalculation: 20.0 Divide 4.0 = 5.0",
+        "PowerCalculation: 2.0 Power 3.0 = 8.0"
     ]
 
     # Act
@@ -100,7 +103,9 @@ def test_display_history_with_entries(capsys):
 1. AddCalculation: 10.0 Add 5.0 = 15.0
 2. SubtractCalculation: 20.0 Subtract 3.0 = 17.0
 3. MultiplyCalculation: 7.0 Multiply 8.0 = 56.0
-4. DivideCalculation: 20.0 Divide 4.0 = 5.0"""
+4. DivideCalculation: 20.0 Divide 4.0 = 5.0
+5. PowerCalculation: 2.0 Power 3.0 = 8.0"""
+    
     assert captured.out.strip() == expected_output.strip()
 
 def test_calculator_exit(monkeypatch, capsys):
